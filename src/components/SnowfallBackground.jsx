@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 
-const Snowfall = () => {
-  const [snowflakes, setSnowflakes] = useState([])
+const SnowfallBackground = ({ intensity = 'normal' }) => {
+  const flakeCount = intensity === 'light' ? 30 : 50
 
-  useEffect(() => {
-    // Generate snowflakes with random properties
-    const flakes = [...Array(50)].map((_, i) => ({
+  const snowflakes = useMemo(() => {
+    return [...Array(flakeCount)].map((_, i) => ({
       id: i,
       left: Math.random() * 100,
-      animationDuration: 5 + Math.random() * 10,
+      duration: 5 + Math.random() * 10,
       opacity: 0.3 + Math.random() * 0.7,
-      size: 3 + Math.random() * 5,
+      size: 2 + Math.random() * 4,
       delay: Math.random() * 5
     }))
-    setSnowflakes(flakes)
-  }, [])
+  }, [flakeCount])
 
   return (
-    <div className="snowfall">
+    <div className="snowfall-bg">
       {snowflakes.map((flake) => (
         <motion.div
           key={flake.id}
-          className="snowflake"
+          className="snowflake-particle"
           initial={{ y: -10, x: 0 }}
           animate={{
             y: '100vh',
-            x: [0, 30, -30, 0],
+            x: [0, 20, -20, 0],
           }}
           transition={{
-            duration: flake.animationDuration,
+            duration: flake.duration,
             repeat: Infinity,
             ease: "linear",
             delay: flake.delay,
             x: {
-              duration: flake.animationDuration / 2,
+              duration: flake.duration / 2,
               repeat: Infinity,
               ease: "easeInOut",
             }
@@ -51,4 +49,4 @@ const Snowfall = () => {
   )
 }
 
-export default Snowfall
+export default SnowfallBackground
