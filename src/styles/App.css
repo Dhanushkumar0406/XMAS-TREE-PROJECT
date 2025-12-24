@@ -1,0 +1,548 @@
+/* ==================== Reset & Base Styles ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #2d1b3d 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ==================== Christmas Container ==================== */
+.christmas-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(29, 47, 73, 0.9) 0%, rgba(10, 22, 40, 1) 100%);
+}
+
+/* ==================== Snowfall Effect ==================== */
+.snowfall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== Lights Border ==================== */
+.lights-border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  z-index: 10;
+  background: #1a1a1a;
+  border-bottom: 2px solid #333;
+}
+
+.light {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 15px currentColor;
+}
+
+.light:nth-child(3n) {
+  background: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.light:nth-child(3n + 1) {
+  background: #ffd700;
+  color: #ffd700;
+}
+
+.light:nth-child(3n + 2) {
+  background: #4ecdc4;
+  color: #4ecdc4;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(0.8); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+}
+
+/* ==================== Content Wrapper ==================== */
+.content-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ==================== Header Section ==================== */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+}
+
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(255, 215, 0, 0.8),
+    0 0 20px rgba(255, 215, 0, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.4);
+}
+
+.name-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.date {
+  font-size: 1.2rem;
+  color: #ffd700;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==================== Christmas Tree ==================== */
+.tree-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  min-height: 400px;
+}
+
+.tree-lights {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tree-light {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px currentColor;
+  filter: blur(1px);
+}
+
+.tree-image-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.tree-image {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.floating-ornament {
+  position: absolute;
+  font-size: 2rem;
+  z-index: 3;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.ornament-1 {
+  top: 15%;
+  left: 10%;
+}
+
+.ornament-2 {
+  top: 40%;
+  right: 15%;
+}
+
+.ornament-3 {
+  top: 70%;
+  left: 20%;
+}
+
+/* ==================== Gift Box ==================== */
+.gift-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  perspective: 1000px;
+}
+
+.gift-box {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.gift-lid,
+.gift-base {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.gift-lid {
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  transform-origin: bottom;
+  z-index: 10;
+}
+
+.lid-top {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border: 3px solid #922b21;
+  border-radius: 5px 5px 0 0;
+  box-shadow:
+    inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+    0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gift-base {
+  width: 100%;
+  height: 120px;
+  bottom: 0;
+  left: 0;
+}
+
+.box-front,
+.box-back,
+.box-left,
+.box-right {
+  position: absolute;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border: 3px solid #922b21;
+}
+
+.box-front {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.2),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 5px 5px;
+}
+
+/* Ribbons */
+.ribbon-horizontal {
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(to bottom, #ffd700 0%, #f39c12 100%);
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.3),
+    0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #d4af37;
+  z-index: 5;
+}
+
+.ribbon-vertical {
+  position: absolute;
+  width: 25px;
+  height: 100%;
+  background: linear-gradient(to right, #ffd700 0%, #f39c12 100%);
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow:
+    inset 2px 0 5px rgba(255, 255, 255, 0.4),
+    inset -2px 0 5px rgba(0, 0, 0, 0.3),
+    2px 0 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #d4af37;
+  z-index: 6;
+}
+
+.ribbon-bow {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+  z-index: 15;
+}
+
+/* Light rays */
+.light-ray {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #ffd700, transparent);
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  filter: blur(2px);
+  box-shadow: 0 0 20px #ffd700;
+}
+
+.click-instruction {
+  color: #ffd700;
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+/* ==================== Reveal Message ==================== */
+.reveal-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  max-width: 90%;
+  width: 600px;
+}
+
+.message-content {
+  background: linear-gradient(135deg, rgba(26, 39, 68, 0.95) 0%, rgba(45, 27, 61, 0.95) 100%);
+  padding: 60px 40px;
+  border-radius: 30px;
+  border: 3px solid #ffd700;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.message-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.surprise-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(45deg, #ffd700, #fff, #ffd700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+}
+
+.sparkle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+}
+
+.sparkle:nth-child(1) { top: 10%; left: 10%; }
+.sparkle:nth-child(2) { top: 15%; right: 15%; }
+.sparkle:nth-child(3) { top: 50%; left: 5%; }
+.sparkle:nth-child(4) { top: 55%; right: 8%; }
+.sparkle:nth-child(5) { bottom: 20%; left: 20%; }
+.sparkle:nth-child(6) { bottom: 15%; right: 25%; }
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .name-title {
+    font-size: 2rem;
+  }
+
+  .date {
+    font-size: 1rem;
+  }
+
+  .tree-image {
+    max-width: 280px;
+  }
+
+  .floating-ornament {
+    font-size: 1.5rem;
+  }
+
+  .gift-box {
+    width: 140px;
+    height: 140px;
+  }
+
+  .gift-lid {
+    height: 50px;
+  }
+
+  .gift-base {
+    height: 90px;
+  }
+
+  .ribbon-bow {
+    font-size: 2rem;
+  }
+
+  .surprise-text {
+    font-size: 1.8rem;
+  }
+
+  .message-content {
+    padding: 40px 30px;
+  }
+
+  .click-instruction {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .name-title {
+    font-size: 1.6rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .tree-image {
+    max-width: 220px;
+  }
+
+  .gift-box {
+    width: 120px;
+    height: 120px;
+  }
+
+  .gift-lid {
+    height: 40px;
+  }
+
+  .gift-base {
+    height: 80px;
+  }
+
+  .ribbon-horizontal,
+  .ribbon-vertical {
+    height: 20px;
+    width: 20px;
+  }
+
+  .ribbon-bow {
+    font-size: 1.5rem;
+  }
+
+  .surprise-text {
+    font-size: 1.4rem;
+  }
+
+  .message-content {
+    padding: 30px 20px;
+  }
+
+  .sparkle {
+    font-size: 1rem;
+  }
+}
+
+/* ==================== Performance Optimizations ==================== */
+.tree-image,
+.gift-box,
+.snowflake {
+  will-change: transform;
+}
+
+/* Reduce animations on low-performance devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
